@@ -1,0 +1,1 @@
+import { createFileRoute } from "@tanstack/react-router"; import { PanchangPage,pageMeta } from "@/components/content-pages"; export const Route=createFileRoute("/panchang/$topic")({head:({params})=>pageMeta(params.topic,"Traditional Panchang guidance and API-ready calculations."),component:()=>{const {topic}=Route.useParams();return <PanchangPage topic={topic}/>}});

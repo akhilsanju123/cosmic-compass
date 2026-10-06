@@ -1,0 +1,1 @@
+import { createFileRoute } from "@tanstack/react-router"; import { CalculatorsPage,pageMeta } from "@/components/content-pages"; export const Route=createFileRoute("/calculators/")({head:()=>pageMeta("Astrology Calculators","Explore Vedic astrology and numerology calculators."),component:CalculatorsPage});

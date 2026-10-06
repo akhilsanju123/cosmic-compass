@@ -1,0 +1,1 @@
+import { createFileRoute } from "@tanstack/react-router"; import { ShopPage,pageMeta } from "@/components/content-pages"; export const Route=createFileRoute("/shop")({head:()=>pageMeta("Spiritual Shop","Explore gemstones, Rudrakshas, Yantras and puja essentials."),component:ShopPage});
