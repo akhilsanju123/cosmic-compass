@@ -7,7 +7,13 @@ export const buttonVariants = cva("inline-flex min-h-11 items-center justify-cen
 export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement>, VariantProps<typeof buttonVariants> {}
 export const Button = forwardRef<HTMLButtonElement, ButtonProps>(({ variant, size, className, ...props }, ref) => <button ref={ref} className={cn(buttonVariants({ variant, size }), className)} {...props}/>);
 Button.displayName = "Button";
-type StaticPath = "/"|"/about"|"/consultations"|"/horoscope/daily"|"/calculators"|"/calculators/rashi"|"/panchang"|"/panchang/today"|"/services"|"/pujas"|"/shop"|"/kundali-se-naukari"|"/contact";
-export function ButtonLink({ to, children, variant = "primary", className }: { to: StaticPath; children: ReactNode; variant?: "primary"|"secondary"|"ghost"; className?: string }) {
-  return <Link to={to} className={cn(buttonVariants({ variant }), className)}>{children}</Link>;
+type StaticPath = "/"|"/about"|"/consultations"|"/calculators"|"/panchang"|"/services"|"/pujas"|"/shop"|"/kundali-se-naukari"|"/contact";
+type ButtonLinkProps = { children: ReactNode; variant?: "primary"|"secondary"|"ghost"; className?: string } & ({to: StaticPath; params?: never}|{to:"/horoscope/$period";params:{period:string}}|{to:"/calculators/$slug";params:{slug:string}}|{to:"/consultations/$mode";params:{mode:string}}|{to:"/panchang/$topic";params:{topic:string}});
+export function ButtonLink({ to, children, variant = "primary", className, params }: ButtonLinkProps) {
+  const classes=cn(buttonVariants({ variant }), className);
+  if(to==="/horoscope/$period") return <Link to={to} params={params}>{children}</Link>;
+  if(to==="/calculators/$slug") return <Link to={to} params={params}>{children}</Link>;
+  if(to==="/consultations/$mode") return <Link to={to} params={params}>{children}</Link>;
+  if(to==="/panchang/$topic") return <Link to={to} params={params}>{children}</Link>;
+  return <Link to={to} className={classes}>{children}</Link>;
 }
