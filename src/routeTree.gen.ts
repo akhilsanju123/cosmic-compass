@@ -10,33 +10,233 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as AboutRouteImport } from './routes/about'
+import { Route as CalculatorsRouteImport } from './routes/calculators'
+import { Route as ConsultationsRouteImport } from './routes/consultations'
+import { Route as ContactRouteImport } from './routes/contact'
+import { Route as KundaliSeNaukariRouteImport } from './routes/kundali-se-naukari'
+import { Route as PanchangRouteImport } from './routes/panchang'
+import { Route as PujasRouteImport } from './routes/pujas'
+import { Route as ServicesRouteImport } from './routes/services'
+import { Route as ShopRouteImport } from './routes/shop'
+import { Route as CalculatorsIndexRouteImport } from './routes/calculators.index'
+import { Route as CalculatorsSlugRouteImport } from './routes/calculators.$slug'
+import { Route as ConsultationsIndexRouteImport } from './routes/consultations.index'
+import { Route as ConsultationsModeRouteImport } from './routes/consultations.$mode'
+import { Route as HoroscopePeriodRouteImport } from './routes/horoscope.$period'
+import { Route as PanchangIndexRouteImport } from './routes/panchang.index'
+import { Route as PanchangTopicRouteImport } from './routes/panchang.$topic'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AboutRoute = AboutRouteImport.update({
+  id: '/about',
+  path: '/about',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CalculatorsRoute = CalculatorsRouteImport.update({
+  id: '/calculators',
+  path: '/calculators',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ConsultationsRoute = ConsultationsRouteImport.update({
+  id: '/consultations',
+  path: '/consultations',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ContactRoute = ContactRouteImport.update({
+  id: '/contact',
+  path: '/contact',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const KundaliSeNaukariRoute = KundaliSeNaukariRouteImport.update({
+  id: '/kundali-se-naukari',
+  path: '/kundali-se-naukari',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PanchangRoute = PanchangRouteImport.update({
+  id: '/panchang',
+  path: '/panchang',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PujasRoute = PujasRouteImport.update({
+  id: '/pujas',
+  path: '/pujas',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ServicesRoute = ServicesRouteImport.update({
+  id: '/services',
+  path: '/services',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ShopRoute = ShopRouteImport.update({
+  id: '/shop',
+  path: '/shop',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CalculatorsIndexRoute = CalculatorsIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => CalculatorsRoute,
+} as any)
+const CalculatorsSlugRoute = CalculatorsSlugRouteImport.update({
+  id: '/$slug',
+  path: '/$slug',
+  getParentRoute: () => CalculatorsRoute,
+} as any)
+const ConsultationsIndexRoute = ConsultationsIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => ConsultationsRoute,
+} as any)
+const ConsultationsModeRoute = ConsultationsModeRouteImport.update({
+  id: '/$mode',
+  path: '/$mode',
+  getParentRoute: () => ConsultationsRoute,
+} as any)
+const HoroscopePeriodRoute = HoroscopePeriodRouteImport.update({
+  id: '/horoscope/$period',
+  path: '/horoscope/$period',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PanchangIndexRoute = PanchangIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => PanchangRoute,
+} as any)
+const PanchangTopicRoute = PanchangTopicRouteImport.update({
+  id: '/$topic',
+  path: '/$topic',
+  getParentRoute: () => PanchangRoute,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/calculators': typeof CalculatorsRouteWithChildren
+  '/consultations': typeof ConsultationsRouteWithChildren
+  '/contact': typeof ContactRoute
+  '/kundali-se-naukari': typeof KundaliSeNaukariRoute
+  '/panchang': typeof PanchangRouteWithChildren
+  '/pujas': typeof PujasRoute
+  '/services': typeof ServicesRoute
+  '/shop': typeof ShopRoute
+  '/calculators/$slug': typeof CalculatorsSlugRoute
+  '/consultations/$mode': typeof ConsultationsModeRoute
+  '/horoscope/$period': typeof HoroscopePeriodRoute
+  '/panchang/$topic': typeof PanchangTopicRoute
+  '/calculators/': typeof CalculatorsIndexRoute
+  '/consultations/': typeof ConsultationsIndexRoute
+  '/panchang/': typeof PanchangIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/contact': typeof ContactRoute
+  '/kundali-se-naukari': typeof KundaliSeNaukariRoute
+  '/pujas': typeof PujasRoute
+  '/services': typeof ServicesRoute
+  '/shop': typeof ShopRoute
+  '/calculators/$slug': typeof CalculatorsSlugRoute
+  '/consultations/$mode': typeof ConsultationsModeRoute
+  '/horoscope/$period': typeof HoroscopePeriodRoute
+  '/panchang/$topic': typeof PanchangTopicRoute
+  '/calculators': typeof CalculatorsIndexRoute
+  '/consultations': typeof ConsultationsIndexRoute
+  '/panchang': typeof PanchangIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/calculators': typeof CalculatorsRouteWithChildren
+  '/consultations': typeof ConsultationsRouteWithChildren
+  '/contact': typeof ContactRoute
+  '/kundali-se-naukari': typeof KundaliSeNaukariRoute
+  '/panchang': typeof PanchangRouteWithChildren
+  '/pujas': typeof PujasRoute
+  '/services': typeof ServicesRoute
+  '/shop': typeof ShopRoute
+  '/calculators/$slug': typeof CalculatorsSlugRoute
+  '/consultations/$mode': typeof ConsultationsModeRoute
+  '/horoscope/$period': typeof HoroscopePeriodRoute
+  '/panchang/$topic': typeof PanchangTopicRoute
+  '/calculators/': typeof CalculatorsIndexRoute
+  '/consultations/': typeof ConsultationsIndexRoute
+  '/panchang/': typeof PanchangIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/about'
+    | '/calculators'
+    | '/consultations'
+    | '/contact'
+    | '/kundali-se-naukari'
+    | '/panchang'
+    | '/pujas'
+    | '/services'
+    | '/shop'
+    | '/calculators/$slug'
+    | '/consultations/$mode'
+    | '/horoscope/$period'
+    | '/panchang/$topic'
+    | '/calculators/'
+    | '/consultations/'
+    | '/panchang/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/about'
+    | '/contact'
+    | '/kundali-se-naukari'
+    | '/pujas'
+    | '/services'
+    | '/shop'
+    | '/calculators/$slug'
+    | '/consultations/$mode'
+    | '/horoscope/$period'
+    | '/panchang/$topic'
+    | '/calculators'
+    | '/consultations'
+    | '/panchang'
+  id:
+    | '__root__'
+    | '/'
+    | '/about'
+    | '/calculators'
+    | '/consultations'
+    | '/contact'
+    | '/kundali-se-naukari'
+    | '/panchang'
+    | '/pujas'
+    | '/services'
+    | '/shop'
+    | '/calculators/$slug'
+    | '/consultations/$mode'
+    | '/horoscope/$period'
+    | '/panchang/$topic'
+    | '/calculators/'
+    | '/consultations/'
+    | '/panchang/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AboutRoute: typeof AboutRoute
+  CalculatorsRoute: typeof CalculatorsRouteWithChildren
+  ConsultationsRoute: typeof ConsultationsRouteWithChildren
+  ContactRoute: typeof ContactRoute
+  KundaliSeNaukariRoute: typeof KundaliSeNaukariRoute
+  PanchangRoute: typeof PanchangRouteWithChildren
+  PujasRoute: typeof PujasRoute
+  ServicesRoute: typeof ServicesRoute
+  ShopRoute: typeof ShopRoute
+  HoroscopePeriodRoute: typeof HoroscopePeriodRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +248,175 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/about': {
+      id: '/about'
+      path: '/about'
+      fullPath: '/about'
+      preLoaderRoute: typeof AboutRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/calculators': {
+      id: '/calculators'
+      path: '/calculators'
+      fullPath: '/calculators'
+      preLoaderRoute: typeof CalculatorsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/consultations': {
+      id: '/consultations'
+      path: '/consultations'
+      fullPath: '/consultations'
+      preLoaderRoute: typeof ConsultationsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/contact': {
+      id: '/contact'
+      path: '/contact'
+      fullPath: '/contact'
+      preLoaderRoute: typeof ContactRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/kundali-se-naukari': {
+      id: '/kundali-se-naukari'
+      path: '/kundali-se-naukari'
+      fullPath: '/kundali-se-naukari'
+      preLoaderRoute: typeof KundaliSeNaukariRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/panchang': {
+      id: '/panchang'
+      path: '/panchang'
+      fullPath: '/panchang'
+      preLoaderRoute: typeof PanchangRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/pujas': {
+      id: '/pujas'
+      path: '/pujas'
+      fullPath: '/pujas'
+      preLoaderRoute: typeof PujasRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/services': {
+      id: '/services'
+      path: '/services'
+      fullPath: '/services'
+      preLoaderRoute: typeof ServicesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/shop': {
+      id: '/shop'
+      path: '/shop'
+      fullPath: '/shop'
+      preLoaderRoute: typeof ShopRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/calculators/': {
+      id: '/calculators/'
+      path: '/'
+      fullPath: '/calculators/'
+      preLoaderRoute: typeof CalculatorsIndexRouteImport
+      parentRoute: typeof CalculatorsRoute
+    }
+    '/calculators/$slug': {
+      id: '/calculators/$slug'
+      path: '/$slug'
+      fullPath: '/calculators/$slug'
+      preLoaderRoute: typeof CalculatorsSlugRouteImport
+      parentRoute: typeof CalculatorsRoute
+    }
+    '/consultations/': {
+      id: '/consultations/'
+      path: '/'
+      fullPath: '/consultations/'
+      preLoaderRoute: typeof ConsultationsIndexRouteImport
+      parentRoute: typeof ConsultationsRoute
+    }
+    '/consultations/$mode': {
+      id: '/consultations/$mode'
+      path: '/$mode'
+      fullPath: '/consultations/$mode'
+      preLoaderRoute: typeof ConsultationsModeRouteImport
+      parentRoute: typeof ConsultationsRoute
+    }
+    '/horoscope/$period': {
+      id: '/horoscope/$period'
+      path: '/horoscope/$period'
+      fullPath: '/horoscope/$period'
+      preLoaderRoute: typeof HoroscopePeriodRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/panchang/': {
+      id: '/panchang/'
+      path: '/'
+      fullPath: '/panchang/'
+      preLoaderRoute: typeof PanchangIndexRouteImport
+      parentRoute: typeof PanchangRoute
+    }
+    '/panchang/$topic': {
+      id: '/panchang/$topic'
+      path: '/$topic'
+      fullPath: '/panchang/$topic'
+      preLoaderRoute: typeof PanchangTopicRouteImport
+      parentRoute: typeof PanchangRoute
+    }
   }
 }
 
+interface CalculatorsRouteChildren {
+  CalculatorsSlugRoute: typeof CalculatorsSlugRoute
+  CalculatorsIndexRoute: typeof CalculatorsIndexRoute
+}
+
+const CalculatorsRouteChildren: CalculatorsRouteChildren = {
+  CalculatorsSlugRoute: CalculatorsSlugRoute,
+  CalculatorsIndexRoute: CalculatorsIndexRoute,
+}
+
+const CalculatorsRouteWithChildren = CalculatorsRoute._addFileChildren(
+  CalculatorsRouteChildren,
+)
+
+interface ConsultationsRouteChildren {
+  ConsultationsModeRoute: typeof ConsultationsModeRoute
+  ConsultationsIndexRoute: typeof ConsultationsIndexRoute
+}
+
+const ConsultationsRouteChildren: ConsultationsRouteChildren = {
+  ConsultationsModeRoute: ConsultationsModeRoute,
+  ConsultationsIndexRoute: ConsultationsIndexRoute,
+}
+
+const ConsultationsRouteWithChildren = ConsultationsRoute._addFileChildren(
+  ConsultationsRouteChildren,
+)
+
+interface PanchangRouteChildren {
+  PanchangTopicRoute: typeof PanchangTopicRoute
+  PanchangIndexRoute: typeof PanchangIndexRoute
+}
+
+const PanchangRouteChildren: PanchangRouteChildren = {
+  PanchangTopicRoute: PanchangTopicRoute,
+  PanchangIndexRoute: PanchangIndexRoute,
+}
+
+const PanchangRouteWithChildren = PanchangRoute._addFileChildren(
+  PanchangRouteChildren,
+)
+
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AboutRoute: AboutRoute,
+  CalculatorsRoute: CalculatorsRouteWithChildren,
+  ConsultationsRoute: ConsultationsRouteWithChildren,
+  ContactRoute: ContactRoute,
+  KundaliSeNaukariRoute: KundaliSeNaukariRoute,
+  PanchangRoute: PanchangRouteWithChildren,
+  PujasRoute: PujasRoute,
+  ServicesRoute: ServicesRoute,
+  ShopRoute: ShopRoute,
+  HoroscopePeriodRoute: HoroscopePeriodRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
