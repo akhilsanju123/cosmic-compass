@@ -13,7 +13,7 @@ export function SiteProvider({ children }: { children: ReactNode }) {
     if (savedLang === "en" || savedLang === "te") setLanguageState(savedLang);
     setDark(savedTheme ? savedTheme === "dark" : matchMedia("(prefers-color-scheme: dark)").matches);
   }, []);
-  useEffect(() => document.documentElement.classList.toggle("dark", dark), [dark]);
+  useEffect(() => { document.documentElement.classList.toggle("dark", dark); }, [dark]);
   const setLanguage = (value: Language) => { setLanguageState(value); localStorage.setItem("peetham-language", value); };
   const toggleDark = () => setDark((value) => { localStorage.setItem("peetham-theme", !value ? "dark" : "light"); return !value; });
   return <SiteContext.Provider value={{ language, setLanguage, dark, toggleDark }}>{children}</SiteContext.Provider>;

@@ -29,15 +29,19 @@ export const pujas = ["Ganapathi Homam", "Navagraha Homam", "Lakshmi Puja", "Rud
 
 export const navGroups = {
   consultations: [["/consultations/chat", "Chat with Astrologer"], ["/consultations/call", "Call with Astrologer"]],
-  horoscope: ["daily", "tomorrow", "yesterday", "weekly", "monthly", "yearly"].map((x) => [`/horoscope/${x}`, `${x[0].toUpperCase()}${x.slice(1)} Horoscope`]),
+  horoscope: ["daily", "tomorrow", "yesterday", "weekly", "monthly", "yearly"].map((x) => [`/horoscope/${x}`, `${x.charAt(0).toUpperCase()}${x.slice(1)} Horoscope`]),
   calculators: calculators.map(([slug, label]) => [`/calculators/${slug}`, label]),
-  panchang: ["today", "tomorrow", "rahu-kaal", "choghadiya", "tithi", "vaar", "hora", "karana", "shubh-muhurat"].map((x) => [`/panchang/${x}`, x.split("-").map(w => w[0].toUpperCase() + w.slice(1)).join(" ")]),
+  panchang: ["today", "tomorrow", "rahu-kaal", "choghadiya", "tithi", "vaar", "hora", "karana", "shubh-muhurat"].map((x) => [`/panchang/${x}`, x.split("-").map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(" ")]),
 } as const;
 
 export function sunSign(date: string) {
   if (!date) return rashis[0];
-  const [, month, day] = date.split("-").map(Number);
+  const parts = date.split("-").map(Number);
+  const month = parts[1] ?? 1;
+  const day = parts[2] ?? 1;
   const cutoffs = [20,19,20,20,21,21,22,22,22,22,21,21];
   const indexes = [9,10,11,0,1,2,3,4,5,6,7,8];
-  return rashis[day <= cutoffs[month - 1] ? indexes[month - 1] : (indexes[month - 1] + 1) % 12];
+  const baseIndex = indexes[month - 1] ?? 0;
+  const cutoff = cutoffs[month - 1] ?? 31;
+  return rashis[day <= cutoff ? baseIndex : (baseIndex + 1) % 12] ?? rashis[0];
 }

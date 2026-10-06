@@ -9,7 +9,7 @@ import { ButtonLink } from "./ui/button";
 
 const horoscopeItems = ["daily", "tomorrow", "yesterday", "weekly", "monthly", "yearly"];
 const panchangItems = ["today", "tomorrow", "rahu-kaal", "choghadiya", "tithi", "vaar", "hora", "karana", "shubh-muhurat"];
-const titleCase = (value: string) => value.split("-").map((word) => word[0].toUpperCase() + word.slice(1)).join(" ");
+const titleCase = (value: string) => value.split("-").map((word) => word.charAt(0).toUpperCase() + word.slice(1)).join(" ");
 
 function Dropdown({ label, type }: { label: string; type: "horoscope" | "calculators" | "panchang" | "consultations" }) {
   const [open, setOpen] = useState(false);
