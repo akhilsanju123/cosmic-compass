@@ -1,0 +1,1 @@
+import { createFileRoute } from "@tanstack/react-router"; import { CareerPage,pageMeta } from "@/components/content-pages"; export const Route=createFileRoute("/kundali-se-naukari")({head:()=>pageMeta("Kundali Se Naukari","Traditional astrological guidance for career reflection."),component:CareerPage});

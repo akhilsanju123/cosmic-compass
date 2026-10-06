@@ -8,3 +8,6 @@
 > Commits you push to the connected branch sync back to Lovable and show up in
 > the editor, so keep the branch in a working state.
 <!-- LOVABLE:END -->
+
+- Keep all public pages inside the shared SiteLayout so navigation, language/theme controls, contact actions, and footer remain consistent.
+- Model content families with typed dynamic TanStack routes to cover every requested destination without duplicate page implementations.

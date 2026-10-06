@@ -1,0 +1,1 @@
+import { createFileRoute } from "@tanstack/react-router"; import { CalculatorDetail,pageMeta } from "@/components/content-pages"; export const Route=createFileRoute("/calculators/$slug")({head:({params})=>pageMeta("Astrology Calculator",`Prepare details for the ${params.slug} calculator.`),component:()=>{const {slug}=Route.useParams();return <CalculatorDetail slug={slug}/>}});

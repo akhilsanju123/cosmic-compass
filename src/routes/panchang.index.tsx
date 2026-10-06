@@ -1,0 +1,1 @@
+import { createFileRoute } from "@tanstack/react-router"; import { PanchangPage,pageMeta } from "@/components/content-pages"; export const Route=createFileRoute("/panchang/")({head:()=>pageMeta("Panchang","Explore traditional daily Panchang fields and timings."),component:PanchangPage});

@@ -1,0 +1,1 @@
+import { createFileRoute } from "@tanstack/react-router"; import { ContactPage,pageMeta } from "@/components/content-pages"; export const Route=createFileRoute("/contact")({head:()=>pageMeta("Contact the Peetham","Contact Sri Lalitha Tripura Sundari Peetham in Simhachalam, Visakhapatnam."),component:ContactPage});

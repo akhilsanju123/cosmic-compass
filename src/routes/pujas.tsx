@@ -1,0 +1,1 @@
+import { createFileRoute } from "@tanstack/react-router"; import { PujasPage,pageMeta } from "@/components/content-pages"; export const Route=createFileRoute("/pujas")({head:()=>pageMeta("Pujas & Homams","Book traditional Pujas and Vedic Homams."),component:PujasPage});
