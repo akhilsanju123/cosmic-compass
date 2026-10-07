@@ -67,7 +67,7 @@ export function divisional(lon: number, d: number) {
 }
 
 export function computeKundli(input: BirthInput) {
-  const utc = zonedToUtc(input.date, input.time, input.tz ?? input.timezone);
+  const utc = zonedToUtc(input.date, input.time, input.timezone);
   const t = A.MakeTime(utc);
   const ay = ayanamsa(t);
   const sid = (x: number) => norm(x - ay);
