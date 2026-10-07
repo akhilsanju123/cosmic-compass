@@ -3,6 +3,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import { ArrowUp, ChevronDown, Menu, MessageCircle, Moon, Phone, Sun, X } from "lucide-react";
 import { useEffect, useState, type ReactNode } from "react";
 import logoAsset from "@/assets/peetham-telugu-logo.png.asset.json";
+import logoIcon from "@/assets/peetham-icon.png.asset.json";
 import { calculators } from "@/lib/site-data";
 import { copy, useSite } from "./site-context";
 import { ButtonLink } from "./ui/button";
