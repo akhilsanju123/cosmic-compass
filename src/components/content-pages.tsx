@@ -5,11 +5,135 @@ import { calculators, pujas, rashis, services } from "@/lib/site-data";
 import { FeatureCard, PageHero } from "./page-shell";
 import { Button, ButtonLink } from "./ui/button";
 
+interface AboutPageProps {
+  spiritualGuideImage: string;
+}
+
 const icons = [Sparkles, Compass, Heart, CalendarDays, Star, Sun];
 export const pageMeta = (title: string, description: string) => ({ meta: [{ title: `${title} | Sri Lalitha Peetham` }, { name: "description", content: description }, { property: "og:title", content: `${title} | Sri Lalitha Peetham` }, { property: "og:description", content: description }, { property: "og:type", content: "website" }, { name: "twitter:card", content: "summary_large_image" }] });
 
-export function AboutPage() { return <><PageHero eyebrow="Our sacred purpose" title="A modern doorway to timeless Vedic guidance" text="Sri Sri Sri Lalitha Tripura Sundari Peetham serves seekers through astrology, pujas, Vastu and spiritual guidance rooted in care and tradition."/><section className="py-20"><div className="page-shell about-detail"><div className="guide-frame"><img src={guideAsset.url} alt="Spiritual guide at Sri Lalitha Tripura Sundari Peetham"/></div><div><span className="eyebrow">About the Peetham</span><h2 className="mt-5 font-display text-4xl font-bold">Guidance with devotion and clarity</h2><p className="mt-5 leading-8 text-muted-foreground">Our approach brings respected Vedic traditions into an accessible experience for today’s families. We listen closely, explain clearly, and approach every consultation and ceremony with sincerity.</p><div className="mt-7 grid gap-3 sm:grid-cols-2">{["Vedic Astrology","Pujas & Homams","Vastu Guidance","Muhurthams","Astrologers & Priests","Responsible guidance"].map(x=><div className="mini-point" key={x}><Sparkles/>{x}</div>)}</div></div></div></section><section className="section-band"><div className="page-shell"><div className="three-grid"><FeatureCard icon={<Heart/>} title="Our spiritual mission" text="Help people approach important moments with reflection, prayer and considered guidance."/><FeatureCard icon={<Compass/>} title="Our approach" text="Traditional knowledge, respectful conversation and clear next steps without exaggerated claims."/><FeatureCard icon={<Star/>} title="Why choose us" text="A local Peetham identity, Telugu support and a broad range of sacred services in one place."/></div></div></section><section className="py-20"><div className="page-shell contact-location"><div><span className="eyebrow">Visit the Peetham</span><h2>Near Old Sivalayam</h2><p>Simhachalam, Adavivaram<br/>Visakhapatnam, Andhra Pradesh, India</p></div><div><a href="tel:+919000985000">90009 85000</a><a href="tel:+919666577775">96665 77775</a></div></div></section></> }
+export function AboutPage({
+  spiritualGuideImage,
+}: AboutPageProps) {
+  return (
+    <>
+      {/* HERO SECTION */}
+      <PageHero
+        eyebrow="Our sacred purpose"
+        title="A modern doorway to timeless Vedic guidance"
+        text="Sri Sri Sri Lalitha Tripura Sundari Peetham serves seekers through astrology, pujas, Vastu and spiritual guidance rooted in care and tradition."
+      />
 
+      {/* ABOUT SECTION */}
+      <section className="py-20">
+        <div className="page-shell about-detail">
+
+          {/* SPIRITUAL GUIDE IMAGE */}
+          <div className="guide-frame">
+            <img
+              src={spiritualGuideImage}
+              alt="Spiritual guide at Sri Lalitha Tripura Sundari Peetham"
+              className="w-full h-full object-cover"
+            />
+          </div>
+
+          {/* ABOUT CONTENT */}
+          <div>
+            <span className="eyebrow">
+              About the Peetham
+            </span>
+
+            <h2 className="mt-5 font-display text-4xl font-bold">
+              Guidance with devotion and clarity
+            </h2>
+
+            <p className="mt-5 leading-8 text-muted-foreground">
+              Our approach brings respected Vedic traditions into an
+              accessible experience for today’s families. We listen closely,
+              explain clearly, and approach every consultation and ceremony
+              with sincerity.
+            </p>
+
+            <div className="mt-7 grid gap-3 sm:grid-cols-2">
+              {[
+                "Vedic Astrology",
+                "Pujas & Homams",
+                "Vastu Guidance",
+                "Muhurthams",
+                "Astrologers & Priests",
+                "Responsible guidance",
+              ].map((x) => (
+                <div className="mini-point" key={x}>
+                  <Sparkles />
+                  {x}
+                </div>
+              ))}
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      {/* FEATURES SECTION */}
+      <section className="section-band">
+        <div className="page-shell">
+          <div className="three-grid">
+
+            <FeatureCard
+              icon={<Heart />}
+              title="Our spiritual mission"
+              text="Help people approach important moments with reflection, prayer and considered guidance."
+            />
+
+            <FeatureCard
+              icon={<Compass />}
+              title="Our approach"
+              text="Traditional knowledge, respectful conversation and clear next steps without exaggerated claims."
+            />
+
+            <FeatureCard
+              icon={<Star />}
+              title="Why choose us"
+              text="A local Peetham identity, Telugu support and a broad range of sacred services in one place."
+            />
+
+          </div>
+        </div>
+      </section>
+
+      {/* LOCATION SECTION */}
+      <section className="py-20">
+        <div className="page-shell contact-location">
+
+          <div>
+            <span className="eyebrow">
+              Visit the Peetham
+            </span>
+
+            <h2>Near Old Sivalayam</h2>
+
+            <p>
+              Simhachalam, Adavivaram
+              <br />
+              Visakhapatnam, Andhra Pradesh, India
+            </p>
+          </div>
+
+          <div>
+            <a href="tel:+919000985000">
+              90009 85000
+            </a>
+
+            <a href="tel:+919666577775">
+              96665 77775
+            </a>
+          </div>
+
+        </div>
+      </section>
+    </>
+  );
+}
 export function ConsultationsPage({ mode }: { mode?: string }) { const title=mode ? `${mode === "chat" ? "Chat" : "Call"} with an astrologer` : "Astrology consultations"; const options=[{Icon:MessageCircle,label:"Vedic astrology",text:"Life, relationships and important decisions"},{Icon:BriefcaseBusiness,label:"Career guidance",text:"Career direction and professional questions"},{Icon:Compass,label:"Vastu & Muhurtham",text:"Spaces, ceremonies and auspicious timings"}]; return <><PageHero eyebrow="Personal guidance" title={title} text="Share your question with our consultation team and find the right guide for your needs."/><section className="py-20"><div className="page-shell three-grid">{options.map(({Icon,label,text})=><FeatureCard key={label} icon={<Icon/>} title={label} text={text}/>)}</div><div className="page-shell mt-10 text-center"><a href={mode==="chat"?"https://wa.me/919000985000":"tel:+919000985000"} className="call-button large">{mode==="chat"?<MessageCircle/>:<Phone/>}{mode==="chat"?"Start WhatsApp chat":"Call 90009 85000"}</a><p className="mt-4 text-xs text-muted-foreground">Appointments and availability are confirmed directly by our team.</p></div></section></> }
 
 export function HoroscopePage({ period }: { period: string }) { const label=period.charAt(0).toUpperCase()+period.slice(1); return <><PageHero eyebrow="Rashi guidance" title={`${label} horoscope`} text={`Reflect on the ${period} spiritual themes for your Rashi. Select a sign to begin.`}/><section className="py-20"><div className="page-shell rashi-grid">{rashis.map(r=><article className="rashi-card" key={r.western}><div className="rashi-symbol">{r.symbol}</div><p className="telugu">{r.telugu}</p><h3>{r.vedic}</h3><span>{r.western}</span><p className="mt-4 text-xs leading-5">Pause, prioritize clearly and meet the day with patience.</p></article>)}</div><p className="page-shell mt-8 text-center text-xs text-muted-foreground">General traditional guidance only. Individual readings require full birth details.</p></section></> }
