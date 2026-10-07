@@ -35,7 +35,7 @@ export function SiteLayout({ children }: { children: ReactNode }) {
   return <div className="min-h-screen bg-background text-foreground transition-colors duration-300">
     <header className={`site-header ${scrolled ? "is-scrolled" : ""}`}>
       <div className="header-inner">
-        <Link to="/" className="brand"><img src={logoAsset.url} alt="Sri Sri Sri Lalitha Tripura Sundari Peetham" /></Link>
+        <Link to="/" className="brand"><img src={logoIcon.url} alt="Sri Sri Sri Lalitha Tripura Sundari Peetham emblem" className="brand-icon" /><img src={logoAsset.url} alt="Sri Sri Sri Lalitha Tripura Sundari Peetham" className="brand-name" /></Link>
         <nav className="desktop-nav" aria-label="Main navigation">
           <Link to="/" className="nav-link" activeOptions={{ exact: true }}>{t.home}</Link><Link to="/about" className="nav-link">{t.about}</Link>
           <Dropdown label={t.consult} type="consultations"/><Dropdown label={t.horoscope} type="horoscope"/><Dropdown label={t.calculators} type="calculators"/><Dropdown label={t.panchang} type="panchang"/>
